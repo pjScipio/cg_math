@@ -1,4 +1,4 @@
-package math;
+package ui;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +8,6 @@ public class TestMyMath {
 
   @Test
   public void testGetWert() {
-    assertEquals(23, new MyMath().getWert());
+    assertEquals(23, new MyUI().getWert());
   }
 }
