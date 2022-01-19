@@ -1,4 +1,4 @@
-package ui;
+package math;
 
 import math.MyMath;
 import org.junit.jupiter.api.Test;
