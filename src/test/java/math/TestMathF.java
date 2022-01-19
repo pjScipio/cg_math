@@ -12,7 +12,7 @@ class TestMathF {
   private static final float ANGLE_CONV_DELTA = 1e-4f;
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeRadians")
+  @MethodSource("base.ArgumentSources#rangeRadians")
   void sin(float input) {
     var expected = (float) Math.sin(input);
     var actual = MathF.sin(input);
@@ -20,7 +20,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeRadians")
+  @MethodSource("base.ArgumentSources#rangeRadians")
   void cos(float input) {
     var expected = (float) Math.cos(input);
     var actual = MathF.cos(input);
@@ -28,7 +28,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeRadians")
+  @MethodSource("base.ArgumentSources#rangeRadians")
   void tan(float input) {
     var expected = (float) Math.tan(input);
     var actual = MathF.tan(input);
@@ -36,7 +36,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeNeg1ToPos1")
+  @MethodSource("base.ArgumentSources#rangeNeg1ToPos1")
   void asin(float input) {
     var expected = (float) Math.asin(input);
     var actual = MathF.asin(input);
@@ -44,7 +44,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeNeg1ToPos1")
+  @MethodSource("base.ArgumentSources#rangeNeg1ToPos1")
   void acos(float input) {
     var expected = (float) Math.acos(input);
     var actual = MathF.acos(input);
@@ -52,7 +52,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeNeg1ToPos1")
+  @MethodSource("base.ArgumentSources#rangeNeg1ToPos1")
   void atan(float input) {
     var expected = (float) Math.atan(input);
     var actual = MathF.atan(input);
@@ -60,7 +60,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangePairNeg10ToPos10")
+  @MethodSource("base.ArgumentSources#rangePairNeg10ToPos10")
   void atan2(float y, float x) {
     var expected = (float) Math.atan2(y, x);
     var actual = MathF.atan2(y, x);
@@ -68,7 +68,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangePairNeg10ToPos10")
+  @MethodSource("base.ArgumentSources#rangePairNeg10ToPos10")
   void hypot(float x, float y) {
     var expected = (float) Math.hypot(x, y);
     var actual = MathF.hypot(x, y);
@@ -76,7 +76,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangePairNeg10ToPos10")
+  @MethodSource("base.ArgumentSources#rangePairNeg10ToPos10")
   void pow(float a, float b) {
     var expected = (float) Math.pow(a, b);
     var actual = MathF.pow(a, b);
@@ -84,7 +84,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeDegrees")
+  @MethodSource("base.ArgumentSources#rangeDegrees")
   void sqrt(float input) {
     var expected = (float) Math.sqrt(input);
     var actual = MathF.sqrt(input);
@@ -92,7 +92,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeDegrees")
+  @MethodSource("base.ArgumentSources#rangeDegrees")
   void cbrt(float input) {
     var expected = (float) Math.cbrt(input);
     var actual = MathF.cbrt(input);
@@ -100,7 +100,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeNeg10ToPos10")
+  @MethodSource("base.ArgumentSources#rangeNeg10ToPos10")
   void ceil(float input) {
     var expected = (float) Math.ceil(input);
     var actual = MathF.ceil(input);
@@ -108,7 +108,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeNeg10ToPos10")
+  @MethodSource("base.ArgumentSources#rangeNeg10ToPos10")
   void floor(float input) {
     var expected = (float) Math.floor(input);
     var actual = MathF.floor(input);
@@ -116,7 +116,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeDegrees")
+  @MethodSource("base.ArgumentSources#rangeDegrees")
   void toRadians(float input) {
     var expected = (float) Math.toRadians(input);
     var actual = MathF.toRadians(input);
@@ -124,7 +124,7 @@ class TestMathF {
   }
 
   @ParameterizedTest
-  @MethodSource("pcg.test.ArgumentSources#rangeRadians")
+  @MethodSource("base.ArgumentSources#rangeRadians")
   void toDegrees(float input) {
     var expected = (float) Math.toDegrees(input);
     var actual = MathF.toDegrees(input);
