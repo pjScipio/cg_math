@@ -26,7 +26,7 @@ public abstract class Model extends Observable implements Observer {
    * This method is called after the model parameters got changed.
    */
   @Override
-  public void update() {
+  public void update(Observable sender, String descr, Object payload) {
   }
 
   /**

@@ -24,7 +24,7 @@ public class Observable {
    * Inform all registered observers that something happend.
    */
   public void notifyAllObservers() {
-    observers.forEach(o -> o.update());
+    observers.forEach(o -> o.update(this, null, null));
   }
 
   /**

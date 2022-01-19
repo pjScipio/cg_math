@@ -4,12 +4,6 @@ package misc;
  * Shared interface for all observers.
  */
 public interface Observer {
-
-  /**
-   * Something has happend at the observed object.
-   */
-  void update();
-
   /**
    * More specific information about what happend.
    * @param sender This observer sent the message.
