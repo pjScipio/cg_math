@@ -1,0 +1,10 @@
+.DS_Store
+.gradle/
+.idea/
+gradle/
+build/
+gradlew
+gradlew.bat
+*.dylib
+libopenal.dylib
+out

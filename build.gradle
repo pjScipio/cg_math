@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // Utils
+    implementation 'org.apache.commons:commons-lang3:3.12.0'              // general
+    implementation 'com.google.guava:guava:31.0.1-jre'                    // general
+    implementation 'org.reflections:reflections:0.10.2'                   // reflection
+    implementation 'org.jetbrains:annotations:22.0.0'                     // static analysis
+    implementation 'org.json:json:20210307'
+
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
