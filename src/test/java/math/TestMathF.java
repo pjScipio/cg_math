@@ -4,8 +4,8 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import static base.RangeAssertions.assertInHalfOpen;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static pcg.test.RangeAssertions.assertInHalfOpen;
 
 class TestMathF {
   /** tolerance for equality tests of angles unit conversions */

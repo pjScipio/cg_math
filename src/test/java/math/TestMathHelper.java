@@ -1,15 +1,12 @@
 package math;
 
-import base.backend.datastructures.shape2d.Segment2D;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.math.Vector4f;
 import org.junit.jupiter.api.Test;
-import projects.cgashape.backend.straight_skeleton.StraightSkeletonException;
 
 import static math.MathF.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static pcg.test.JmeAssertions.assertVecEquals;
 
 class TestMathHelper {
   @Test
@@ -144,27 +141,5 @@ class TestMathHelper {
     assertEquals(b, MathHelper.lerp(a, b, 1));
   }
 
-  @Test
-  void testComputeInnerCircleMidpoint() throws StraightSkeletonException {
-    // Regular case
-    Segment2D s1 = new Segment2D(new Vector2f(0, 0), new Vector2f(0, 1));
-    Segment2D s2 = new Segment2D(new Vector2f(0, 1), new Vector2f(1, 0));
-    Segment2D s3 = new Segment2D(new Vector2f(1, 0), new Vector2f(0, 0));
-    Vector2f midpoint = MathHelper.computeInnerCircleMidpoint(s1, s2, s3);
-    assertVecEquals(new Vector2f(0.2928932188134525f, 0.2928932188134525f), midpoint, MathHelper.TOLERANCE);
 
-    // Two segments parallel, midpoint on negative side of all segments
-    s1 = new Segment2D(new Vector2f(0, 0), new Vector2f(0, 1));
-    s2 = new Segment2D(new Vector2f(1, 2), new Vector2f(1, 1));
-    s3 = new Segment2D(new Vector2f(1, 1), new Vector2f(2, 1));
-    midpoint = MathHelper.computeInnerCircleMidpoint(s1, s2, s3);
-    assertVecEquals(new Vector2f(0.5f, 0.5f), midpoint, MathHelper.TOLERANCE);
-
-    // Two segments parallel, midpoint on positive side of some segments
-    s1 = new Segment2D(new Vector2f(2, 1), new Vector2f(2, 0));
-    s2 = new Segment2D(new Vector2f(1, 2), new Vector2f(1, 1));
-    s3 = new Segment2D(new Vector2f(1, 1), new Vector2f(2, 1));
-    midpoint = MathHelper.computeInnerCircleMidpoint(s1, s2, s3);
-    assertNull(midpoint);
-  }
 }

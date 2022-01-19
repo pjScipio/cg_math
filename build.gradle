@@ -11,6 +11,8 @@ test {
     useJUnitPlatform()
 }
 
+def jme3 = [v: '3.4.0-stable', g: 'org.jmonkeyengine']
+
 dependencies {
     // Utils
     implementation 'org.apache.commons:commons-lang3:3.12.0'              // general
@@ -18,6 +20,9 @@ dependencies {
     implementation 'org.reflections:reflections:0.10.2'                   // reflection
     implementation 'org.jetbrains:annotations:22.0.0'                     // static analysis
     implementation 'org.json:json:20210307'
+
+    // JME
+    implementation "${jme3.g}:jme3-core:${jme3.v}"
 
     // Testing
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'

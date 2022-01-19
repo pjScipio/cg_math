@@ -1,9 +1,5 @@
 package math;
 
-import base.backend.datastructures.shape2d.Intersector2D;
-import base.backend.datastructures.shape2d.Point2D;
-import base.backend.datastructures.shape2d.Ray2D;
-import base.backend.datastructures.shape2d.Segment2D;
 import com.google.common.math.LongMath;
 import com.google.common.primitives.Doubles;
 import com.google.common.primitives.Floats;
@@ -22,87 +18,6 @@ public class MathHelper {
 
   public static double sqr(float x) {
     return x * x;
-  }
-
-  /**
-   * Compute the center of the incircle of the three segments (= intersection of the bisectors).
-   */
-  public static Vector2f computeInnerCircleMidpoint(Segment2D... segments) {
-    if (segments == null || segments.length != 3) {
-      throw new IllegalArgumentException("Only implemented/useful for 3 segments.");
-    }
-
-    // Check if pairs of segments are parallel
-    boolean[] parallel = new boolean[3];
-    for (int i = 0; i < 3; i++) {
-      parallel[i] = Math.abs(segments[i].getNormal()
-              .dot(segments[(i + 1) % 3].getNormal())) > 1 - MathHelper.TOLERANCE;
-    }
-
-    int numberParallel = (parallel[0] ? 1 : 0) + (parallel[1] ? 1 : 0) + (parallel[2] ? 1 : 0);
-
-    // regular case: no two segments parallel
-    if (numberParallel == 0) {
-      Vector2f[] points = new Vector2f[3];
-      Vector2f[] edges = new Vector2f[3];
-      Vector2f[] bisectors = new Vector2f[3];
-      for (int i = 0; i < 3; i++) {
-        Point2D p2d = Intersector2D.intersect(segments[i], segments[(i + 1) % 3]);
-        points[i] = p2d.getP();
-      }
-      for (int i = 0; i < 3; i++) {
-        edges[i] = points[(i + 1) % 3].subtract(points[i]).normalize();
-      }
-      for (int i = 0; i < 3; i++) {
-        bisectors[i] = edges[i].subtract(edges[(i + 2) % 3]);
-      }
-      var aLine = new Segment2D(points[0], bisectors[0]);
-      var bLine = new Segment2D(points[1], bisectors[1]);
-      var res = Intersector2D.intersect(aLine.toRay(), bLine.toRay());
-      Vector2f innerCircleMidPoint = res.getP();
-
-      float[] signedDistance = new float[3];
-      boolean allNegative = true;
-      for (int i = 0; i < 3; i++) {
-        signedDistance[i] = segments[i].signedDistanceTo(innerCircleMidPoint);
-        allNegative = allNegative && signedDistance[i] < 0;
-      }
-      return allNegative ? innerCircleMidPoint : null;
-
-    } else if (numberParallel == 1) {
-      int parallelIndex = parallel[0] ? 0 : (parallel[1] ? 1 : 2);
-      Vector2f middleDir = segments[parallelIndex].getDirection().normalize();
-      float parallelDist = segments[parallelIndex].signedDistanceTo(segments[(parallelIndex + 1) % 3].get(0));
-      Vector2f middlePoint = segments[parallelIndex].get(0).add(segments[parallelIndex].getNormal()
-              .mult(parallelDist * 0.5f));
-      Segment2D otherSeg = segments[(parallelIndex + 2) % 3];
-      var middleLine = new Ray2D(middlePoint, middleDir);
-      var res = Intersector2D.intersectGetLambdas(otherSeg.toRay(), middleLine);
-      Vector2f intersectionPoint = middleLine.eval(res.y);
-      Vector2f[] cand = {intersectionPoint.add(middleDir.mult(parallelDist * 0.5f)),
-              intersectionPoint.add(middleDir.mult(parallelDist * -0.5f))};
-
-      float[][] signedDistance = new float[2][3];
-      boolean[] allNegative = new boolean[2];
-      allNegative[0] = allNegative[1] = true;
-      for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
-          signedDistance[j][i] = segments[i].signedDistanceTo(cand[j]);
-          allNegative[j] = allNegative[j] && signedDistance[j][i] < 0;
-        }
-      }
-
-      // Return candidate of it is all positive
-      if (allNegative[0]) {
-        return cand[0];
-      } else if (allNegative[1]) {
-        return cand[1];
-      } else {
-        return null;
-      }
-    } else {
-      throw new IllegalArgumentException("not implemented yet for parallel segments");
-    }
   }
 
   /**
