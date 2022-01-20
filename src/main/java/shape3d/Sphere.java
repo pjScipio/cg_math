@@ -21,6 +21,13 @@ public class Sphere implements Shape3D {
     return radius;
   }
 
+  /**
+   * Returns true if the point p is inside the sphere.
+   */
+  public boolean isInside(Vector3f p) {
+    return p.subtract(center).lengthSquared() <= radius * radius;
+  }
+
   @Override
   public List<Shape3D> intersect(Shape3D other) {
     return Intersector3D.intersectSphereWith(this, other);
