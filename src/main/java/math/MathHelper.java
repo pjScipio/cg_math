@@ -1,3 +1,8 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package math;
 
 import com.google.common.math.LongMath;
@@ -8,6 +13,9 @@ import com.jme3.math.*;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Collection of static math helper functions.
+ */
 public class MathHelper {
 
   /**

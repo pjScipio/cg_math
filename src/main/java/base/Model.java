@@ -1,3 +1,7 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
 package base;
 
 import misc.Observable;

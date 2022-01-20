@@ -1,3 +1,8 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package shape3d;
 
 import com.jme3.math.Vector3f;
@@ -6,8 +11,6 @@ import java.util.List;
 
 /**
  * Represents a ray from a starting point towards a dir.
- *
- * @author Philipp Jenke
  */
 public class Ray3D implements Shape3D {
 

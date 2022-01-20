@@ -1,9 +1,13 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package base;
 
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import org.junit.jupiter.api.Assertions;
-
 
 /**
  * A static utility class for tests,

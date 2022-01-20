@@ -1,3 +1,8 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package shape3d;
 
 import com.jme3.math.Vector3f;
@@ -6,7 +11,7 @@ import math.MathF;
 import java.util.List;
 
 /**
- * Implements all possible intersections
+ * Implementions of intersection computations between 3D shapes.
  */
 public class Intersector3D {
 

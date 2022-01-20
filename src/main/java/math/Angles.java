@@ -1,8 +1,16 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package math;
 
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 
+/**
+ * Static helper functions for angle computations.
+ */
 public class Angles {
   public static float toRadiens(float alpha) {
     return alpha / 180.0f * MathF.PI;

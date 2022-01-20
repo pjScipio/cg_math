@@ -1,9 +1,14 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package misc;
 
 import java.io.PrintStream;
 
 /**
- * Generic logger for all platforms
+ * Generic logger class.
  */
 public class Logger {
 

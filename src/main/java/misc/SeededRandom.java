@@ -1,5 +1,9 @@
-package misc;
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
 
+package misc;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;

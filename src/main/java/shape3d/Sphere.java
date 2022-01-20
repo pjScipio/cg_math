@@ -1,9 +1,17 @@
+/**
+ * This file is part of the computer graphics project of the computer graphics group led by
+ * Prof. Dr. Philipp Jenke at the University of applied Sciences (HAW) in Hamburg.
+ */
+
 package shape3d;
 
 import com.jme3.math.Vector3f;
 
 import java.util.List;
 
+/**
+ * A sphere 3D shape.
+ */
 public class Sphere implements Shape3D {
   private Vector3f center;
   private float radius;
