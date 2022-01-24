@@ -5,6 +5,5 @@ build-job:
   stage: build-and-test
   image: openjdk:8-jdk-slim
   script:
-    - cd cg_math
     - chmod +x ./gradlew
     - ./gradlew build
