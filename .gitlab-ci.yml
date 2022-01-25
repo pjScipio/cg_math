@@ -4,17 +4,17 @@ stages:
 
 build-job:
   stage: build-and-test
-  image: openjdk:17.0.2-jdk-oracle
+  image: openjdk:11-jdk-slim
   script:
     - chmod +x ./gradlew
     - ./gradlew build
 
 unit-testing-job:
   stage: unit-tests
-  image: openjdk:17.0.2-jdk-oracle
+  image: openjdk:11-jdk-slim
   script:
     - chmod +x ./gradlew
-    - export JAVA_HOME="/usr/java/openjdk-17"
+    - export JAVA_HOME="/usr/local/openjdk-11"
     - ./gradlew test
   artifacts:
     when: always
