@@ -1,5 +1,6 @@
 stages:
   - build-and-test
+  - unit-tests
 
 build-job:
   stage: build-and-test
@@ -7,3 +8,12 @@ build-job:
   script:
     - chmod +x ./gradlew
     - ./gradlew build
+
+unit-testing-job:
+  stage: unit-tests
+  script:
+    - gradle test
+  artifacts:
+    when: always
+    reports:
+      junit: build/test-results/test/**/TEST-*.xml
