@@ -4,17 +4,17 @@ stages:
 
 build-job:
   stage: build-and-test
-  image: openjdk:11-jdk-slim
+  image: openjdk:14-jdk-slim
   script:
     - chmod +x ./gradlew
     - ./gradlew build
 
 unit-testing-job:
   stage: unit-tests
-  image: openjdk:11-jdk-slim
+  image: openjdk:14-jdk-slim
   script:
     - chmod +x ./gradlew
-    - export JAVA_HOME="/usr/local/openjdk-11"
+    - export JAVA_HOME="/usr/local/openjdk-14"
     - ./gradlew test
   artifacts:
     when: always
