@@ -4,7 +4,7 @@ stages:
 
 build-job:
   stage: build-and-test
-  image: egymgmbh/jdk11-builder
+  image: kainoscom/jdk-17-slim
   script:
     - chmod +x ./gradlew
     - ./gradlew build
