@@ -3,7 +3,7 @@ stages:
 
 build-job:
   stage: build-and-test
-  image: yourkit-openjdk17
+  image: ligaard/jdk17-gradle73
   script:
     - chmod +x ./gradlew
     - ./gradlew build
