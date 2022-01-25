@@ -13,7 +13,7 @@ unit-testing-job:
   stage: unit-tests
   script:
     - chmod +x ./gradlew
-    - ./gradlew build test
+    - ./gradlew test
   artifacts:
     when: always
     reports:
