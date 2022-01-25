@@ -4,7 +4,7 @@ stages:
 
 build-job:
   stage: build-and-test
-  image: egymgmbh/jdk11-builder
+  image: openjdk:11-jdk-slim
   script:
     - chmod +x ./gradlew
     - ./gradlew build
