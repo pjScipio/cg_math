@@ -3,7 +3,7 @@ stages:
 
 build-job:
   stage: build-and-test
-  image: ligaard/jdk17-gradle73
+  image: egymgmbh/jdk11-builder
   script:
     - chmod +x ./gradlew
     - ./gradlew build
