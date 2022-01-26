@@ -5,13 +5,12 @@
 
 package misc;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
 
@@ -24,7 +23,7 @@ public class AssetPath {
   private static final String[] ROOT_DIRS = {
           "assets/",
           "src/main/resources/",
-          "pcg/src/main/resources/"};
+          "cg_algorithms_datastructures/src/main/resources/"};
 
   private static AssetPath instance;
 
@@ -62,12 +61,25 @@ public class AssetPath {
    * @throws IllegalArgumentException if the given asset path does not exist
    * @throws IOException              if the file could not be opened
    */
-  public InputStream readTextFileToStream(String assetPath) throws IOException {
+  public Optional<InputStream> readTextFileToStream(String assetPath) {
+
+    /*
+    try {
+      return Optional.of(Files.newInputStream(Path.of(assetPath)));
+    } catch (IOException e) {
+      return Optional.empty();
+    }
+    */
+
     var filePath = getPathToAsset(assetPath);
     if (filePath == null) {
-      throw new IllegalArgumentException("No such asset file: " + assetPath);
+      return Optional.empty();
     }
-    return Files.newInputStream(Path.of(filePath));
+    try {
+      return Optional.of(new FileInputStream(filePath));
+    } catch (FileNotFoundException e) {
+      return Optional.empty();
+    }
   }
 
   /**
