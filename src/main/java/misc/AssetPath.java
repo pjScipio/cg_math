@@ -21,9 +21,9 @@ import java.util.stream.Collectors;
  */
 public class AssetPath {
   private static final String[] ROOT_DIRS = {
-          "assets/",
           "src/main/resources/",
-          "cg_algorithms_datastructures/src/main/resources/"};
+          "cg_algorithms_datastructures/src/main/resources/",
+          "pcg/src/main/resources/"};
 
   private static AssetPath instance;
 
