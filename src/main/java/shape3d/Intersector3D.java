@@ -87,4 +87,9 @@ public class Intersector3D {
     Vector3f p = (p2.getNormal().mult(d1).subtract(p1.getNormal().mult(d2)).cross(dir)).mult(-1.0f / dir.dot(dir));
     return List.of(new Ray3D(p, dir));
   }
+
+  public static List<Shape3D> intersectSegmentWith(Segment3D segment3D, Shape3D shape) {
+    System.out.println("Intersection not implemented: " + segment3D + " <-> " + shape);
+    return null;
+  }
 }
