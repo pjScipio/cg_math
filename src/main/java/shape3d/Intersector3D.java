@@ -63,7 +63,7 @@ public class Intersector3D {
     float dd = ray.getDir().dot(ray.getDir());
     float rr = sphere.getRadius() * sphere.getRadius();
     float p = -2.0f * a.dot(ray.getDir()) / dd;
-    float q = aa - rr / dd;
+    float q = (aa - rr) / dd;
     float belowSquare = p * p / 4.0f - q;
     if (belowSquare < 0) {
       return List.of();
