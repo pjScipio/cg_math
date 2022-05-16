@@ -27,4 +27,9 @@ public class Point3D implements Shape3D {
   public List<Shape3D> intersect(Shape3D other) {
     return null;
   }
+
+  @Override
+  public String toString(){
+    return p.toString();
+  }
 }
