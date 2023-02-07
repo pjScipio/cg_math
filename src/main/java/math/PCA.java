@@ -1,7 +1,6 @@
 package math;
 
 import Jama.EigenvalueDecomposition;
-import Jama.Matrix;
 import com.jme3.math.Matrix3f;
 import com.jme3.math.Vector3f;
 import misc.Logger;
