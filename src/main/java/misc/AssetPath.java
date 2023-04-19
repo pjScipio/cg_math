@@ -27,6 +27,9 @@ public class AssetPath {
 
   private static AssetPath instance;
 
+  // Flag for disabling asset paths and using full file paths instead
+  public static boolean useGlobalAssets = false;
+  
   private AssetPath() {
   }
 
@@ -89,8 +92,12 @@ public class AssetPath {
    * @return a file path relative to the project directory, or {@code null} if no such asset file exists
    */
   public String getPathToAsset(String assetPath) {
+    var filePath = new File(assetPath);
+    if(useGlobalAssets && filePath.exists()) {
+      return assetPath;
+    }
     for (var rootDir : ROOT_DIRS) {
-      var filePath = new File(rootDir + assetPath);
+      filePath = new File(rootDir + assetPath);
       String absPath = new File(rootDir + assetPath).getAbsolutePath();
       if (filePath.exists()) {
         return filePath.toString();
