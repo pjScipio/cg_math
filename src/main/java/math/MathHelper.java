@@ -13,6 +13,8 @@ import com.jme3.math.*;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static math.Angles.normalizeAngle;
+
 /**
  * Collection of static math helper functions.
  */
@@ -214,5 +216,18 @@ public class MathHelper {
 
     // correct for rounding
     return Math.nextDown(bound);
+  }
+
+  /**
+   * Compute the angle between 2D vectors u and v. u and v must be normalized.
+   */
+  public static float angleBetween2D(Vector2f u, Vector2f v) {
+    if (!equals(u.length(), 1) || !equals(v.length(), 1)) {
+      throw new IllegalArgumentException("Vectors must be normalized");
+    }
+
+    var a = MathF.atan2(u.getY(), u.getX());
+    var b = MathF.atan2(v.getY(), v.getX());
+    return normalizeAngle(b - a);
   }
 }
