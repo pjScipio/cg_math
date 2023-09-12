@@ -11,7 +11,7 @@ test {
     useJUnitPlatform()
 }
 
-def jme3 = [v: '3.4.0-stable', g: 'org.jmonkeyengine']
+def jme3 = [v: '3.5.2-stable', g: 'org.jmonkeyengine']
 
 dependencies {
     // Utils
@@ -19,7 +19,8 @@ dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'                    // general
     implementation 'org.reflections:reflections:0.10.2'                   // reflection
     implementation 'org.jetbrains:annotations:22.0.0'                     // static analysis
-    implementation 'org.json:json:20210307'
+    implementation 'org.json:json:20220320'
+    implementation group: 'gov.nist.math', name: 'jama', version: '1.0.3'
 
     // JME
     implementation "${jme3.g}:jme3-core:${jme3.v}"
